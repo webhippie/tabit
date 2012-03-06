@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "tabit"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thomas Boerger", "Tim Rudat"]
@@ -30,7 +30,8 @@ Gem::Specification.new do |s|
     "lib/tabit/config.rb",
     "lib/tabit/helper.rb",
     "lib/tabit/railtie.rb",
-    "lib/tabit/version.rb"
+    "lib/tabit/version.rb",
+    "tabit.gemspec"
   ]
   s.homepage = "https://github.com/Langwhich/tabit"
   s.licenses = ["MIT"]
