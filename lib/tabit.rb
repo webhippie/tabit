@@ -1,6 +1,3 @@
-require 'tabit/railtie' if defined? Rails
-require 'tabit/cell' if defined? Cell
-
 module Tabit
   autoload :Version, 'tabit/version'
   autoload :Config, 'tabit/config'
@@ -16,4 +13,7 @@ module Tabit
     @configuration ||= Tabit::Config.new
   end  
 end
+
+require 'tabit/railtie' if defined? Rails
+require 'tabit/cell' if defined? Cell
 
