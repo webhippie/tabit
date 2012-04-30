@@ -9,29 +9,17 @@ module Tabit
     attr_accessor :name
     attr_accessor :url
     attr_accessor :options
+    attr_accessor :active
 
     def initialize(name, url = nil, options = {})
       @name, @url, @options = name, url, options
-      
+
       @active = @options.delete(:active) || configuration.active_detect
       @type = @options.delete(:type) || :default
-
       @children = []
 
       @options[:inner] ||= {}
       @options[:outer] ||= {}
-
-      clazz = template.active_link_to_class(
-        url,
-        {
-          active: @active,
-          class_active: configuration.active_class
-        }
-      )
-
-      @options[:outer][:class] = '' if @options[:outer][:class].nil?
-      @options[:outer][:class] << " #{clazz}"
-      @options[:outer][:class].strip!
     end
 
     def add(name, url = nil, options = {})
@@ -42,6 +30,16 @@ module Tabit
     end
 
     def to_s
+      clazz = if active?
+        configuration.active_class
+      else
+        ''
+      end
+      
+      options[:outer][:class] = '' if @options[:outer][:class].nil?
+      options[:outer][:class] << " #{clazz}"
+      options[:outer][:class].strip!
+
       case @type
         when :dropdown
           options[:outer][:class] = '' if @options[:outer][:class].nil?
@@ -72,6 +70,20 @@ module Tabit
             ].compact.join.html_safe,
             options[:outer]
           )
+      end
+    end
+
+    def active?
+      if template.is_active_link? url, active
+        true
+      else
+        children.each do |child|
+          if child.active?
+            return true
+          end
+        end
+
+        false
       end
     end
 
