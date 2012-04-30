@@ -1,43 +1,21 @@
 module Tabit
-  class Builder
-    include ActionView::Helpers::TagHelper
-    include ActionView::Helpers::CaptureHelper
+  class Builder < Item
+    def initialize(template, options, &block)
+      @@template = template
 
-    attr_accessor :output_buffer
-    attr_accessor :template
+      @children = []
+      @options = options
 
-    def initialize(template)
-      @template = template
+      yield self if block_given?
     end
 
-    def add(name, url = nil, options = {})
-      options[:inner] ||= {}
-      options[:outer] ||= {}
-
-      options[:active] ||= configuration.active_detect
-      url ||= '#'
-
-      clazz = template.active_link_to_class(
-        url,
-        {
-          :active => options[:active],
-          :class_active => configuration.active_class
-        }
+    def to_s
+      template.content_tag(
+        :ul,
+        children.collect(&:to_s).join.html_safe,
+        options
       )
-
-      options[:outer][:class] = '' if options[:outer][:class].nil?
-      options[:outer][:class] << " #{clazz}"
-      options[:outer][:class].strip!
-
-      content_tag(:li, name, options[:outer]) do
-        template.link_to name, url, options[:inner]
-      end
     end
-
-    protected
-      def configuration
-        Tabit.configuration
-      end
   end
 end
 

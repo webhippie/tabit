@@ -4,6 +4,7 @@ module Tabit
   autoload :Railtie, 'tabit/railtie'
   autoload :Helper, 'tabit/helper'
   autoload :Builder, 'tabit/builder'
+  autoload :Item, 'tabit/item'
 
   def self.configure(&block)
     @configuration = Tabit::Config.new(&block)

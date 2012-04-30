@@ -1,4 +1,4 @@
-Copyright (c) 2011 Langwhich GmbH <http://www.langwhich.com>
+Copyright (c) 2012 Langwhich GmbH <http://www.langwhich.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
