@@ -29,6 +29,30 @@ module Tabit
       end
     end
 
+    def heading(name = nil, options = {})
+      options[:class] = '' if options[:class].nil?
+      options[:class] << " #{configuration.heading_class}"
+      options[:class].strip!
+
+      @children << template.content_tag(
+        :li,
+        name
+        options
+      )
+    end
+
+    def divider(name = nil)
+      options[:class] = '' if options[:class].nil?
+      options[:class] << " #{configuration.divider_class}"
+      options[:class].strip!
+
+      @children << template.content_tag(
+        :li,
+        name
+        options
+      )
+    end
+
     def to_s
       clazz = if active?
         configuration.active_class
