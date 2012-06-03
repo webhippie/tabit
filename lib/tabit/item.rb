@@ -36,7 +36,7 @@ module Tabit
 
       @children << template.content_tag(
         :li,
-        name
+        name,
         options
       )
     end
@@ -48,7 +48,7 @@ module Tabit
 
       @children << template.content_tag(
         :li,
-        name
+        name,
         options
       )
     end
