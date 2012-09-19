@@ -19,11 +19,11 @@ require 'tabit/version'
 Jeweler::Tasks.new do |gem|
   gem.name = 'tabit'
   gem.version = Tabit::Version::STRING
-  gem.homepage = 'https://github.com/Langwhich/tabit'
+  gem.homepage = 'https://github.com/tbpro/tabit'
   gem.license = 'MIT'
   gem.summary = %Q{Tabit is a simple tab menu generator}
-  gem.email = 'thomas.boerger@langwhich.com'
-  gem.authors = ['Thomas Boerger', 'Tim Rudat']
+  gem.email = 'tboerger@tbpro.de'
+  gem.authors = ['Thomas Boerger']
 end
 
 Jeweler::RubygemsDotOrgTasks.new

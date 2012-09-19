@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tabit
   class Item
     include ActionView::Helpers::TagHelper
@@ -59,7 +60,7 @@ module Tabit
       else
         ''
       end
-      
+
       options[:outer][:class] = '' if @options[:outer][:class].nil?
       options[:outer][:class] << " #{clazz}"
       options[:outer][:class].strip!
@@ -113,8 +114,8 @@ module Tabit
 
     protected
       def output
-        if children.empty? 
-          nil 
+        if children.empty?
+          nil
         else
           case @type
             when :dropdown
@@ -137,4 +138,3 @@ module Tabit
       end
   end
 end
-

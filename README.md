@@ -1,4 +1,4 @@
-# Tabit [![Build Status](https://secure.travis-ci.org/Langwhich/tabit.png)](https://secure.travis-ci.org/Langwhich/tabit)
+# Tabit [![Build Status](https://secure.travis-ci.org/tbpro/tabit.png)](https://secure.travis-ci.org/#!/tbpro/tabit)
 
 Tabit is a simple tab menu generator. It depends on `active_link_to`
 helper. If you dont know how to set an item active take a look at it first.
@@ -24,5 +24,5 @@ The generated source is compatible to bootstrap tabs with dropdowns.
 
 ## Credits
 
-Copyright (c) 20112 Langwhich GmbH <http://www.langwhich.com>
+Copyright (c) 20112 Thomas Boerger Programmierung <http://www.tbpro.de>
 

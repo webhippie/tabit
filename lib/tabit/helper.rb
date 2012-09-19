@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tabit
   module Helper
     include ActionView::Helpers::TagHelper
@@ -15,4 +16,3 @@ module Tabit
       end
   end
 end
-

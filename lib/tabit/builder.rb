@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tabit
   class Builder < Item
     def initialize(template, options, &block)
@@ -18,4 +19,3 @@ module Tabit
     end
   end
 end
-

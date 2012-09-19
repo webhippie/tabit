@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Tabit
   class Railtie < Rails::Railtie
     ActiveSupport.on_load :action_controller do
