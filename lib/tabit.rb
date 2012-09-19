@@ -1,4 +1,7 @@
 # -*- encoding : utf-8 -*-
+
+require 'active_link_to'
+
 module Tabit
   autoload :Version, 'tabit/version'
   autoload :Config, 'tabit/config'
