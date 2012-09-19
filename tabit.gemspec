@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "tabit"
-  s.version = "0.3.2"
+  s.version = "0.3.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Thomas Boerger", "Tim Rudat"]
-  s.date = "2012-06-03"
-  s.email = "thomas.boerger@langwhich.com"
+  s.authors = ["Thomas Boerger"]
+  s.date = "2012-09-19"
+  s.email = "tboerger@tbpro.de"
   s.extra_rdoc_files = [
     "LICENSE.md",
     "README.md"
@@ -34,10 +34,10 @@ Gem::Specification.new do |s|
     "lib/tabit/version.rb",
     "tabit.gemspec"
   ]
-  s.homepage = "https://github.com/Langwhich/tabit"
+  s.homepage = "https://github.com/tbpro/tabit"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.21"
+  s.rubygems_version = "1.8.24"
   s.summary = "Tabit is a simple tab menu generator"
 
   if s.respond_to? :specification_version then
@@ -46,19 +46,25 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<active_link_to>, ["~> 1.0.0"])
       s.add_development_dependency(%q<redcarpet>, ["~> 2.1.0"])
-      s.add_development_dependency(%q<yard>, ["~> 0.7.5"])
+      s.add_development_dependency(%q<yard>, ["~> 0.8.2.1"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
+      s.add_development_dependency(%q<magic_encoding>, ["~> 0.0.2"])
+      s.add_development_dependency(%q<whitespace>, ["~> 2.0.4"])
     else
       s.add_dependency(%q<active_link_to>, ["~> 1.0.0"])
       s.add_dependency(%q<redcarpet>, ["~> 2.1.0"])
-      s.add_dependency(%q<yard>, ["~> 0.7.5"])
+      s.add_dependency(%q<yard>, ["~> 0.8.2.1"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
+      s.add_dependency(%q<magic_encoding>, ["~> 0.0.2"])
+      s.add_dependency(%q<whitespace>, ["~> 2.0.4"])
     end
   else
     s.add_dependency(%q<active_link_to>, ["~> 1.0.0"])
     s.add_dependency(%q<redcarpet>, ["~> 2.1.0"])
-    s.add_dependency(%q<yard>, ["~> 0.7.5"])
+    s.add_dependency(%q<yard>, ["~> 0.8.2.1"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
+    s.add_dependency(%q<magic_encoding>, ["~> 0.0.2"])
+    s.add_dependency(%q<whitespace>, ["~> 2.0.4"])
   end
 end
 
