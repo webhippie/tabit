@@ -61,9 +61,16 @@ module Tabit
         ''
       end
 
-      options[:outer][:class] = '' if @options[:outer][:class].nil?
-      options[:outer][:class] << " #{clazz}"
-      options[:outer][:class].strip!
+      case configuration.active_scope
+        when :outer
+          options[:outer][:class] = '' if @options[:outer][:class].nil?
+          options[:outer][:class] << " #{clazz}"
+          options[:outer][:class].strip!
+        when :inner
+          options[:inner][:class] = '' if @options[:inner][:class].nil?
+          options[:inner][:class] << " #{clazz}"
+          options[:inner][:class].strip!
+      end
 
       case @type
         when :dropdown
