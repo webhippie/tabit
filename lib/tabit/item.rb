@@ -110,11 +110,7 @@ class Tabit
     protected
 
     def current_active_class
-      if active?
-        configuration.active_class
-      else
-        nil
-      end
+      configuration.active_class if active?
     end
 
     def configure_item_attrs
@@ -133,14 +129,7 @@ class Tabit
       append_toggle_to_options "dropdown", options[:inner]
 
       generate_simple_item(
-        [
-          name,
-          content_tag(
-            configuration.caret_element,
-            "",
-            class: "caret"
-          )
-        ].join(" ").html_safe
+        generate_caret_label(name)
       )
     end
 
@@ -148,6 +137,17 @@ class Tabit
       generate_simple_item(
         name
       )
+    end
+
+    def generate_caret_label(label)
+      [
+        label,
+        content_tag(
+          configuration.caret_element,
+          "",
+          class: "caret"
+        )
+      ].join(" ").html_safe
     end
 
     def generate_simple_item(label)
