@@ -88,6 +88,7 @@ class Tabit
         true
       else
         children.each do |child|
+          next if child.is_a? String
           return true if child.active?
         end
 
@@ -112,7 +113,7 @@ class Tabit
       if active?
         configuration.active_class
       else
-        ""
+        nil
       end
     end
 
@@ -132,7 +133,14 @@ class Tabit
       append_toggle_to_options "dropdown", options[:inner]
 
       generate_simple_item(
-        [name, content_tag(:span, "", class: "caret")].join.html_safe
+        [
+          name,
+          content_tag(
+            configuration.caret_element,
+            "",
+            class: "caret"
+          )
+        ].join(" ").html_safe
       )
     end
 
@@ -157,19 +165,19 @@ class Tabit
       )
     end
 
-    def append_class_to_options(clazz, target = nil)
+    def append_class_to_options(value, target = nil)
       target ||= options
 
       target[:class] ||= ""
-      target[:class] << " #{clazz}"
+      target[:class] << " #{value}"
       target[:class].strip!
     end
 
-    def append_toggle_to_options(clazz, target = nil)
+    def append_toggle_to_options(value, target = nil)
       target ||= options
 
       target[:data] ||= {}
-      target[:data][:toggle] = clazz
+      target[:data][:toggle] = value
     end
 
     def output

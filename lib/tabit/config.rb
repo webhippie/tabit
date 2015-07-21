@@ -26,6 +26,7 @@ class Tabit
   class Config
     attr_accessor :builder_class
 
+    attr_accessor :caret_element
     attr_accessor :active_scope
     attr_accessor :active_detect
     attr_accessor :active_class
@@ -35,6 +36,7 @@ class Tabit
     def initialize(&block)
       self.builder_class = Tabit::Builder
 
+      self.caret_element = :b
       self.active_scope = :outer
       self.active_detect = :exclusive
       self.active_class = "active"
