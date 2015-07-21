@@ -3,6 +3,12 @@
 /.idea
 /.yardoc
 /.bundle
+/.vagrant
 
+/coverage
 /pkg
 /doc
+/vendor
+
+/Gemfile.lock
+/Gemfile.local

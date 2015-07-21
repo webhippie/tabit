@@ -22,29 +22,13 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-class Tabit
-  class Builder < Item
-    def initialize(template, options)
-      self.template = template
-      self.options = options
+guard :rspec, cmd: "bundle exec rspec", all_on_start: true do
+  watch(/^spec\/.+_spec\.rb$/)
+  watch(/^lib\/(.+)\.rb$/) { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch("spec/spec_helper.rb") { "spec" }
+end
 
-      yield self if block_given?
-    end
-
-    def to_s
-      current_options = options
-      current_options.delete :outer
-      current_options.delete :inner
-
-      template.content_tag(
-        :ul,
-        children.collect(&:to_s).join.html_safe,
-        current_options
-      )
-    end
-
-    def children
-      @children ||= []
-    end
-  end
+guard :rubocop, all_on_start: true do
+  watch(/.+\.rb$/)
+  watch(/(?:.+\/)?\.rubocop\.yml$/) { |m| File.dirname(m[0]) }
 end

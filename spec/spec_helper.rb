@@ -22,29 +22,32 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-class Tabit
-  class Builder < Item
-    def initialize(template, options)
-      self.template = template
-      self.options = options
+require "simplecov"
 
-      yield self if block_given?
-    end
+if ENV["CODECLIMATE_REPO_TOKEN"]
+  require "coveralls"
+  require "codeclimate-test-reporter"
 
-    def to_s
-      current_options = options
-      current_options.delete :outer
-      current_options.delete :inner
+  Coveralls.wear!
+  CodeClimate::TestReporter.start
 
-      template.content_tag(
-        :ul,
-        children.collect(&:to_s).join.html_safe,
-        current_options
-      )
-    end
+  SimpleCov.start do
+    add_filter "/spec"
 
-    def children
-      @children ||= []
-    end
+    formatter SimpleCov::Formatter::MultiFormatter[
+      SimpleCov::Formatter::HTMLFormatter,
+      CodeClimate::TestReporter::Formatter
+    ]
   end
+else
+  SimpleCov.start do
+    add_filter "/spec"
+  end
+end
+
+require "tabit"
+require "rspec"
+
+RSpec.configure do |config|
+  config.mock_with :rspec
 end
